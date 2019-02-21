@@ -1,0 +1,77 @@
+<div class="modal-header lipi-blue-bg">
+  <h4 class="modal-title">Editar Usuario</h4>
+  <button type="button" class="close" aria-hidden="true" (click)="dismiss()">×</button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+          <div class="form-group row">
+                <label class="col-lg-2 col-form-label">Nombre</label>
+                <div class="col-lg-10">
+                      <input type="text" class="form-control" placeholder="Nombre..." [(ngModel)]="user[0].fullName">
+                </div>
+          </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+            <div class="form-group row">
+                  <label class="col-lg-2 col-form-label">Rut</label>
+                  <div class="col-lg-10">
+                        <input type="text" class="form-control" placeholder="Rut..." [(ngModel)]="user[0].run">
+                  </div>
+            </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+            <div class="form-group row">
+                  <label class="col-lg-2 col-form-label">Email</label>
+                  <div class="col-lg-10">
+                        <input type="email" class="form-control" placeholder="Email..." [(ngModel)]="user[0].email">
+                  </div>
+            </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+          <div class="form-group row">
+                <label class="col-lg-2 col-form-label">Perfil <i class="fa fa-spinner fa-spin" *ngIf="loadingProfileFindAllStatusEqualToOne"></i></label>
+                <div class="col-lg-10">
+                    <select [(ngModel)]="user[0].profileId" class="form-control" (change)="changeLocalIdByProfileId()">
+                      <option *ngFor="let profile of profiles" value="{{ profile.id }}">{{ profile.description }}</option>
+                    </select>
+                </div>
+          </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="user[0].profileId == 3">
+    <div class="col-md-12">
+          <div class="form-group row">
+                <label class="col-lg-2 col-form-label">¿Local?</label>
+                <div class="col-lg-10">
+                  <input type="checkbox" style="display: none;">
+                  <span [class]="returnClassSiwtch(local)">
+                      <small [class]="returnClassSmall(local)" (click)="isLocal(); changeLocalIdByProfileId();"></small>
+                  </span>
+                </div>
+          </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+          <div class="form-group row">
+                <label class="col-lg-2 col-form-label">Local <i class="fa fa-spinner fa-spin" *ngIf="loadingLocalFindAllStatusEqualToOne"></i></label>
+                <div class="col-lg-10">
+                    <select [(ngModel)]="user[0].localId" class="form-control" [disabled]="user[0].profileId == 3 && local == false">
+                      <option *ngFor="let local of locals" value="{{ local.id }}">{{ local.name }}</option>
+                    </select>
+                </div>
+          </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-lipi-yellow" (click)="updatebyIdAndStatusEqualToOne()" [disabled]="profiles.length == 0 || locals.length == 0 || loadingUpdatebyIdAndStatusEqualToOne == true">Editar <i class="fa fa-spinner fa-spin" *ngIf="loadingUpdatebyIdAndStatusEqualToOne"></i></button>
+  <a href="javascript:;" class="btn btn-white" (click)="dismiss()">Salir</a>
+</div>

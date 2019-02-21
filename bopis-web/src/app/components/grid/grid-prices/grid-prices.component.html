@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-md-6">
+      <div class="panel panel-success">
+          <div class="panel-heading" style="background-color: #003087 !important; border-color: #003087 !important;">
+            <i class="fa fa-spinner fa-spin" *ngIf="loadingCylinderByLocalId"></i>Local : {{ nameLocal }} (Precio Zona)
+          </div>
+          <div class="panel-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <p>Cilindro</p>
+                </div>
+                <div class="col-md-4">
+                    <p>Precio Zona</p>
+                </div>
+              </div>
+              <div class="row" *ngFor="let cylinderByLocal of cylinderByLocals; let i = index">
+                <div class="col-md-8">
+                    <img src="{{ cylinderByLocal.cylinder.image }}" alt="" width="60">{{ cylinderByLocal.cylinder.name }}
+                </div>
+                <div class="col-md-4" style="padding-top: 7%;">
+                  <input type="number" class="form-control"  style="width: 60%;" [(ngModel)]="cylinderByLocals[i].zonePrice" (input)="updateByIdAndStatusEqualToOne(i)">
+                </div>
+              </div>
+              <div class="row" *ngIf="cylinderByLocals.length == 0">
+                <div class="col-md-12" style="text-align: center;">
+                    <p><i class="fa fa-search"></i> Sin resultados.</p>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-6">
+      <div class="panel panel-success">
+          <div class="panel-heading" style="background-color: #003087 !important; border-color: #003087 !important;">
+            <i class="fa fa-spinner fa-spin" *ngIf="loadingCylinderByLocalId"></i>Local : {{ nameLocal }} (Precio Local)
+          </div>
+          <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <p>Cilindro</p>
+                </div>
+                <div class="col-md-2">
+                    <p>Dscto</p>
+                </div>
+                <div class="col-md-4">
+                    <p>Precio Final</p>
+                </div>
+              </div>
+              <div class="row" *ngFor="let cylinderByLocal of cylinderByLocals; let i = index">
+                <div class="col-md-6">
+                    <img src="{{ cylinderByLocal.cylinder.image }}" alt="" width="60">{{ cylinderByLocal.cylinder.name }}
+                </div>
+                <div class="col-md-2" style="padding-top: 7%;">
+                  <input type="number" class="form-control"  [(ngModel)]="cylinderByLocals[i].discount" (input)="updateByIdAndStatusEqualToOne(i)">
+                </div>
+                <div class="col-md-4" style="padding-top: 7%;">
+                    <input type="text" class="form-control-plaintext"  style="width: 60%;" [(ngModel)]="cylinderByLocals[i].finalPrice" readonly>
+                </div>
+              </div>
+              <div class="row" *ngIf="cylinderByLocals.length == 0">
+                <div class="col-md-12" style="text-align: center;">
+                    <p><i class="fa fa-search"></i> Sin resultados.</p>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

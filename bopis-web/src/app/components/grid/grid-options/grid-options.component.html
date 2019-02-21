@@ -1,0 +1,96 @@
+<div class="row">
+  <div class="col-md-6">
+      <div class="panel panel-success">
+          <div class="panel-heading" style="background-color: #003087 !important; border-color: #003087 !important;">
+            <i class="fa fa-spinner fa-spin" *ngIf="loadingCylinderByLocalId"></i>Local : {{ nameLocal }}
+          </div>
+          <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <p>Cilindro</p>
+                </div>
+                <div class="col-md-3">
+                    <p>Stock</p>
+                </div>
+                <div class="col-md-3">
+                    <p>¿Habilitado?</p>
+                </div>
+              </div>
+              <div class="row" *ngFor="let stock of stocks; let i = index">
+                <div class="col-md-6">
+                    <img src="{{ stock.cylinderByLocal.cylinder.image }}" alt="" width="60">{{ stock.cylinderByLocal.cylinder.name }}
+                </div>
+                <div class="col-md-3" style="padding-top: 7%;">
+                  <input type="number" class="form-control"  style="width: 60%;" [(ngModel)]="stocks[i].quantity" (input)="updateQuantityByIdAndStatusEqualToOne(i)">
+                </div>
+                <div class="col-md-3" style="padding-top: 7%;">
+                    <input type="checkbox" style="display: none;">
+                    <span [class]="returnClassSiwtch(stock.cylinderByLocal.status)">
+                        <small [class]="returnClassSmall(stock.cylinderByLocal.status)" (click)="updateStatusFindById(i)"></small>
+                    </span>
+                </div>
+              </div>
+              <div class="row" *ngIf="stocks.length == 0">
+                <div class="col-md-12" style="text-align: center;">
+                    <p><i class="fa fa-search"></i> Sin resultados.</p>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-6">
+      <div class="panel panel-success">
+          <div class="panel-heading" style="background-color: #003087 !important; border-color: #003087 !important;">
+            <i class="fa fa-spinner fa-spin" *ngIf="loadingScheduleOfAttentionByLocalId"></i> Horario de Atención
+          </div>
+          <div class="panel-body">
+              <div class="row" *ngIf="stocks.length > 0">
+                <div class="col-md-2" style="margin-top: 1%;">
+                    <p>¿Abierto?</p>
+                </div>
+                <div class="col-md-10">
+                    <input type="checkbox" style="display: none;">
+                    <span [class]="returnClassSiwtch(openLocal)">
+                        <small [class]="returnClassSmall(openLocal)" (click)="updateOpenLocalFindByIdAndStatusEqualToOne()"></small>
+                    </span>
+                </div>
+              </div>
+              <ng-container *ngFor="let scheduleOfAttention of scheduleOfAttentions; let i = index">
+                <div class="row">
+                    <div class="col-md-12">
+                        <b>{{ scheduleOfAttention.week.dayOfWeek }}</b>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                                <label class="col-lg-3 col-form-label">Inicio</label>
+                                <div class="col-lg-9">
+                                    <div class="input-group clockpicker" data-autoclose="true">
+                                        <input type="text" placeholder="Inicio..." class="form-control" [(ngModel)]="scheduleOfAttentions[i].start" (input)="scheduleOfAttentionUpdateStartAndFinishFindByIdAndStatusEqualToOne(i)">
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label">Termino</label>
+                            <div class="col-lg-9">
+                                <div class="input-group clockpicker" data-autoclose="true">
+                                    <input type="text" placeholder="Termino..." class="form-control"  [(ngModel)]="scheduleOfAttentions[i].finish" (input)="scheduleOfAttentionUpdateStartAndFinishFindByIdAndStatusEqualToOne(i)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <div class="row" *ngIf="scheduleOfAttentions.length == 0">
+                <div class="col-md-12" style="text-align: center;">
+                    <p><i class="fa fa-search"></i> Sin resultados.</p>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th *ngIf="loadingFindAllPaged"><i class="fa fa-spinner fa-spin"></i></th>
+                        <th (click)="column = 'Id'; orderByAndSort();">Id <i class="{{ sorts.Id }}"></i></th>
+                        <th (click)="column = 'Description'; orderByAndSort();">Descripción <i class="{{ sorts.Description }}"></i></th>
+                        <th (click)="column = 'Key'; orderByAndSort();">Llave <i class="{{ sorts.Key }}"></i></th>
+                        <th>Valor </th>
+                        <th>¿ Solo lectura ?</th>
+                    </tr>
+              </thead>
+              <tbody *ngIf="configurations.length > 0">
+                  <tr *ngFor="let configuration of configurations; let i = index">
+                      <td>{{ configuration.id }}</td>
+                      <td>{{ configuration.description }}</td>
+                      <td>{{ configuration.key }}</td>
+                      <td>
+                          <input [type]="returnTypeInput(configuration.dataType)" [(ngModel)]="configurations[i].value" [class]="returnClassInput(configuration.readOnly)" [readOnly]="configuration.readOnly" (input)="updateValueAndReadOnlyByIdAndStatusEqualToOne(i)">
+                      </td>
+                      <td>
+                        <input type="checkbox" style="display: none;">
+                        <span [class]="returnClassSiwtch(configuration.readOnly)">
+                            <small [class]="returnClassSmall(configuration.readOnly)" (click)="updateReadOnlyFindbyIdAndStatusEqualToOne(i)"></small>
+                        </span>
+                      </td>
+                  </tr>
+              </tbody>
+              <tbody *ngIf="configurations.length == 0">
+                    <tr>
+                          <td colspan="8" style="text-align: center;"><i class="fa fa-search"></i> Sin resultados.</td>
+                    </tr>
+              </tbody>
+            </table>
+        </div>
+        <ng-container *ngIf="configurations.length > 0">
+            <ngb-pagination [collectionSize]="countRows" [pageSize]="countRowsByPage" [(page)]="currentPage" (pageChange)="pageChange($event)"></ngb-pagination>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="row">
+      <div class="col-md-4">
+            <div class="ibox ">
+                  <div class="ibox-title navy-bg">
+                        <h5>Pedidos entregados <i class="fa fa-spinner fa-spin" *ngIf="loadingOrderFindByOrderStatusIdAndLocalIdOrLocalId"></i></h5>
+                  </div>
+                  <div class="ibox-content">
+                        <h1 class="no-margins" style="text-align: center;">{{ orderDelivered }}</h1>
+                  </div>
+            </div>
+      </div>
+      <div class="col-md-4">
+            <div class="ibox ">
+                  <div class="ibox-title yellow-bg">
+                        <h5>Pedidos por entregar <i class="fa fa-spinner fa-spin" *ngIf="loadingOrderFindByOrderStatusIdAndLocalIdOrLocalId"></i></h5>
+                  </div>
+                  <div class="ibox-content">
+                        <h1 class="no-margins" style="text-align: center;">{{ orderSlopes }}</h1>
+                  </div>
+            </div>
+      </div>
+      <div class="col-md-4">
+            <div class="ibox ">
+                  <div class="ibox-title red-bg">
+                        <h5>Pedidos anulados <i class="fa fa-spinner fa-spin" *ngIf="loadingOrderFindByOrderStatusIdAndLocalIdOrLocalId"></i></h5>
+                  </div>
+                  <div class="ibox-content">
+                        <h1 class="no-margins" style="text-align: center;">{{ orderCanceled }}</h1>
+                  </div>
+            </div>
+      </div>
+</div>
+<div class="row">
+      <div class="col-md-4">
+            <div class="ibox ">
+                  <div class="ibox-title lazur-bg">
+                        <h5>Locales <i class="fa fa-spinner fa-spin" *ngIf="loadingLocalFindAllCount"></i></h5>
+                  </div>
+                  <div class="ibox-content">
+                        <h1 class="no-margins" style="text-align: center;">{{ localFindAll }}</h1>
+                  </div>
+            </div>
+      </div>
+      <div class="col-md-4">
+            <div class="ibox ">
+                  <div class="ibox-title navy-bg">
+                        <h5>Locales Activos <i class="fa fa-spinner fa-spin" *ngIf="loadingLocalFindByStatusEqualToOne"></i></h5>
+                  </div>
+                  <div class="ibox-content">
+                        <h1 class="no-margins" style="text-align: center;">{{ localFindByStatusEqualToOne }}</h1>
+                  </div>
+            </div>
+      </div>
+      <div class="col-md-4">
+            <div class="ibox ">
+                  <div class="ibox-title lazur-bg">
+                        <h5>Usuarios creados <i class="fa fa-spinner fa-spin" *ngIf="loadingUserFindAllCount"></i></h5>
+                  </div>
+                  <div class="ibox-content">
+                        <h1 class="no-margins" style="text-align: center;">{{ userFindAll }}</h1>
+                  </div>
+            </div>
+      </div>
+</div>

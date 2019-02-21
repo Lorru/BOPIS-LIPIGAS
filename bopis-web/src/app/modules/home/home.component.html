@@ -1,0 +1,14 @@
+<div *ngIf="profileId == 1">
+      <app-grid-home-administrator></app-grid-home-administrator>
+</div>
+<div *ngIf="profileId == 2">
+      <app-grid-home></app-grid-home>
+      <app-table-home></app-table-home>
+</div>
+<div *ngIf="profileId == 3 && localId != null">
+      <app-grid-home-administrator></app-grid-home-administrator>
+      <app-table-home></app-table-home>
+</div>
+<div *ngIf="profileId == 3 && localId == null">
+      <app-grid-home-administrator></app-grid-home-administrator>
+</div>

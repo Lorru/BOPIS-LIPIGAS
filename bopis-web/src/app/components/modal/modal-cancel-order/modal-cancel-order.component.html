@@ -1,0 +1,11 @@
+<div class="modal-header lipi-blue-bg">
+    <h4 class="modal-title">Anular Orden</h4>
+    <button type="button" class="close" aria-hidden="true" (click)="dismiss()">×</button>
+</div>
+<div class="modal-body">
+    {{ message }}
+</div>
+<div class="modal-footer">
+      <button class="btn btn-lipi-yellow" (click)="cancelOrder()" [disabled]="loadinCancelOrder">Anular <i class="fa fa-spinner fa-spin" *ngIf="loadinCancelOrder"></i></button>
+    <a href="javascript:;" class="btn btn-white" (click)="dismiss()">Salir</a>
+</div>

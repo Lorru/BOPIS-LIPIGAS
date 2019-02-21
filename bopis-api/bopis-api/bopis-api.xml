@@ -1,0 +1,444 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>bopis-api</name>
+    </assembly>
+    <members>
+        <member name="M:bopis_api.Controllers.ConfigurationController.findByIdAndStatusEqualToOne(System.String,System.Int64)">
+            <summary>
+            Retorna un Objeto Configuration de la tabla Configuration.
+            </summary>
+            <param name="token"></param> 
+            <param name="id"></param> 
+            <response code="200">Retorna un objeto Configuration.</response>
+            <response code="404">Retorna un mensaje de que no existe la Configuración.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.ConfigurationController.findAllPaged(System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            Obtiene todas las Configuraciones del sistema de la tabla Configuration.
+            </summary>
+            <param name="token"></param> 
+            <param name="page">Predeterminado 1.</param> 
+            <param name="sort">1 = orderBy, 2 = orderByDescending, predeterminado 1.</param> 
+            <param name="column">Orden por columnas disponibles : Id, Description, Key.</param> 
+            <response code="200">Retorna un array del objecto Configuration de la tabla Configuration.</response>
+            <response code="204">Retorna un array vacío del objecto Configuration.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.ConfigurationController.updateValueAndReadOnlyByIdAndStatusEqualToOne(bopis_api.Models.Bopis.Configuration,System.String)">
+            <summary>
+            Actualiza los datos de un registro de la tabla Configuration.
+            </summary>
+            <param name="token"></param> 
+            <param name="configuration">Id, Value, ReadOnly.</param> 
+            <response code="200">Retorna un objeto Configuration actualizado recientemente.</response>
+            <response code="404">Retorna un objeto Configuration que no se pudo actualizar.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.CylinderByLocalController.updateStatusFindById(bopis_api.Models.Bopis.CylinderByLocal,System.String)">
+            <summary>
+            Actualiza el estado de un registro de la tabla CylinderByLocal.
+            </summary>
+            <param name="token"></param> 
+            <param name="cylinderByLocal">Id, Status</param> 
+            <response code="200">Retorna un mensaje de que se actualizo el Local correctamente.</response>
+            <response code="404">Retorna un mensaje de que no se pudo actualizo el Local.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.CylinderByLocalController.findByLocalIdAndStatusEqualToOne(System.String,System.Int64)">
+            <summary>
+            Obtiene todos los Cilindros de la tabla CylinderByLocal por el Id del local con Status = 1.
+            </summary>
+            <param name="token"></param> 
+            <param name="localId"></param> 
+            <response code="200">Retorna un array del objecto CylinderByLocal de la tabla CylinderByLocal.</response>
+            <response code="204">Retorna un array vacío del objecto CylinderByLocal.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.CylinderByLocalController.updateByIdAndStatusEqualToOne(bopis_api.Models.Bopis.CylinderByLocal,System.String)">
+            <summary>
+            Actualiza los datos de un registro de la tabla CylinderByLocal.
+            </summary>
+            <param name="token"></param> 
+            <param name="cylinderByLocal">Id, ZonePrice, Discount, FinalPrice.</param> 
+            <response code="200">Retorna un objeto CylinderByLocal actualizado recientemente.</response>
+            <response code="404">Retorna un objeto CylinderByLocal que no se pudo actualizar.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.LocalController.findAllCount(System.String)">
+            <summary>
+            Obtiene el total de Locales registrados de la tabla Local.
+            </summary>
+            <param name="token"></param> 
+            <response code="200">Retorna el total de Locales de la tabla Local.</response>
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.LocalController.findByStatusEqualToOneCount(System.String)">
+            <summary>
+            Obtiene el total de Locales registrados de la tabla Local con Status = 1.
+            </summary>
+            <param name="token"></param> 
+            <response code="200">Retorna el total de Locales de la tabla Local con Status = 1.</response>
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.LocalController.updateOpenFindByIdAndStatusEqualToOne(bopis_api.Models.Bopis.User,System.String)">
+            <summary>
+            Actualiza si esta abierto o cerrado el Local de un registro de la tabla Local.
+            </summary>
+            <param name="token"></param> 
+            <param name="user">Id, Local.Open .</param> 
+            <response code="200">Retorna un mensaje de que se actualizo correctamente el Local.</response>
+            <response code="404">Retorna un mensaje de que no se pudo actualizar el Local.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.LocalController.findAllPaged(System.String,System.Int32,System.String,System.Int32,System.String)">
+            <summary>
+            Obtiene todos los locales de la tabla Local.
+            </summary>
+            <param name="token"></param> 
+            <param name="page">Predeterminado 1.</param> 
+            <param name="filter">Filtros disponibles por Nombre.</param> 
+            <param name="sort">1 = orderBy, 2 = orderByDescending, predeterminado 1.</param> 
+            <param name="column">Orden por columnas disponibles : Id, Name, Radio.</param> 
+            <response code="200">Retorna un array del objecto Local de la tabla Local.</response>
+            <response code="204">Retorna un array vacío del objecto Local.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.LocalController.updateStatusFindById(bopis_api.Models.Bopis.User,System.String)">
+            <summary>
+            Actualiza el Status del Local de la tabla Local
+            </summary>
+            <param name="token"></param> 
+            <param name="user">Id, Local.Status .</param> 
+            <response code="200">Retorna un mensaje de que se actualizo correctamente el Local.</response>
+            <response code="404">Retorna un mensaje de que no se pudo actualizar el Local.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.LocalController.updateByIdAndStatusEqualToOne(bopis_api.Models.Bopis.User,System.String)">
+            <summary>
+            Actualiza los datos de un registro de la tabla Local.
+            </summary>
+            <param name="token"></param> 
+            <param name="user">Id, Local.Id, Local.Latitude, Local.Length, Local.Name, Local.Radio.</param> 
+            <response code="200">Retorna un mensaje de que se actualizo correctamente el Local.</response>
+            <response code="404">Retorna un mensaje de que no se pudo actualizar el Local.</response>    
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.LocalController.create(bopis_api.Models.Bopis.User,System.String)">
+            <summary>
+            Crea un registro en la tabla Local.
+            </summary>
+            <param name="token"></param> 
+            <param name="user">Id, Local.Latitude, Local.Length, Local.Name, Local.Radio.</param> 
+            <response code="201">Retorna un mensaje de que se creo el Local correctamente.</response>
+            <response code="404">Retorna un mensaje de que no se pudo crear el Local.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.LocalController.findAllStatusEqualToOne(System.String)">
+            <summary>
+            Obtiene todos los locales de la tabla Local donde status es igual a 1.
+            </summary>
+            <param name="token"></param> 
+            <response code="200">Retorna un array del objecto Local.</response>
+            <response code="204">Retorna un array vacío del objecto Local.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.OrderController.findByOrderStatusIdAndLocalIdCount(System.String,System.Int64)">
+            <summary>
+            Obtiene el total de ordenes Entregadas, Pendientes y Anuladas por el Local.
+            </summary>
+            <param name="token"></param> 
+            <param name="localId"></param> 
+            <response code="200">Retorna un entero del total de Ordenes por el Local.</response>
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.OrderController.findByOrderStatusIdCount(System.String)">
+            <summary>
+            Obtiene el total de ordenes Entregadas, Pendientes y Anuladas.
+            </summary>
+            <param name="token"></param>
+            <response code="200">Retorna un entero del total de Ordenes por el Local.</response>
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.OrderController.findByLocalIdPaged(System.String,System.Int64,System.Int32,System.String,System.Int32,System.String)">
+            <summary>
+            Obtiene todas las ordenes por el Local de la tabla Order.
+            </summary>
+            <param name="token"></param>  
+            <param name="localId"></param> 
+            <param name="page">Predeterminado 1.</param>
+            <param name="filter">Filtros disponibles por ClientRun, ClientFullName.</param> 
+            <param name="sort">1 = orderBy, 2 = orderByDescending, predeterminado 1.</param> 
+            <param name="column">Orden por columnas disponibles : Id, ClientAddress, ClientRun, ClientFullName, DateOfDelivery, ScheduleOfRetirement, DateOfRequest</param> 
+            <response code="200">Retorna un array del objecto Order de la tabla Order.</response>
+            <response code="204">Retorna un array vacío del objecto Order.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.OrderController.deleteById(System.String,System.Int64)">
+            <summary>
+            Actualiza un registro de la tabla Order dejando el orderStatusId = 3.
+            </summary>
+            <param name="token"></param> 
+            <param name="id"></param> 
+            <response code="200">Retorna un mensaje de que se eliminó la Orden correctamente.</response>
+            <response code="404">Retorna un mensaje de que no se pudo eliminar laa Orden.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.OrderController.updateById(bopis_api.Models.Bopis.Order,System.String)">
+            <summary>
+            Actualiza los datos de un registro de la tabla Order.
+            </summary>
+            <param name="token"></param> 
+            <param name="order">Id, UserId.</param> 
+            <response code="200">Retorna un mensaje de que se actualizo la Orden.</response>
+            <response code="404">Retorna un mensaje de que no se pudo actualizar la Orden.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.OrderController.findByIdAndClientRunPaged(System.String,System.Int64,System.String,System.Int32,System.String,System.Int32,System.String)">
+            <summary>
+            Obtiene todas las ordenes por el RUT del cliente o el Id de la tabla Order.
+            </summary>
+            <param name="token"></param>  
+            <param name="id"></param> 
+            <param name="clientRun"></param> 
+            <param name="page">Predeterminado 1.</param>
+            <param name="filter">Filtros disponibles por ClientRun, Id.</param> 
+            <param name="sort">1 = orderBy, 2 = orderByDescending, predeterminado 1.</param> 
+            <param name="column">Orden por columnas disponibles : Id, ClientAddress, ClientRun, ClientFullName, DateOfDelivery, ScheduleOfRetirement, DateOfRequest</param> 
+            <response code="200">Retorna un array del objecto Order de la tabla Order.</response>
+            <response code="204">Retorna un array vacío del objecto Order.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.OrderController.create(bopis_api.Models.Bopis.Order,System.String)">
+            <summary>
+            Crea un registro en la tabla Order.
+            </summary>
+            <param name="token"></param> 
+            <param name="order">ClientAddress, ClientFullName, ClientRun, CylinderByLocalId, Quantity, UserId.</param> 
+            <response code="201">Retorna un mensaje de que la Orden se creo recientemente.</response>
+            <response code="404">Retorna un mensaje de que la Orden no se pudo crear.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.OrderStatusController.findAllStatusEqualToOne(System.String)">
+            <summary>
+            Obtiene todos los usuario de la tabla OrderStatus donde status es igual a 1.
+            </summary>
+            <param name="token"></param> 
+            <response code="200">Retorna un array del objecto OrderStatus.</response>
+            <response code="204">Retorna un array vacío del objeto OrderStatus.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.ProfileController.findByAllStatusEqualToOne(System.String)">
+            <summary>
+            Obtiene todos los perfiles de la tabla Profile donde status es igual a 1.
+            </summary>
+            <param name="token"></param> 
+            <response code="200">Retorna un array del objecto Profile.</response>
+            <response code="204">Retorna un array vacío del objecto Profile.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.ReportController.findByDateOfRequestAndLocalsIdAndUsersIdAndOrderStatusId(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Obtiene todas las ordenes de la tabla Order asociada a los filtros.
+            </summary>
+            <param name="token"></param> 
+            <param name="dateStart"></param> 
+            <param name="dateFinish"></param> 
+            <param name="localId"></param> 
+            <param name="userId"></param> 
+            <param name="orderStatusId"></param> 
+            <response code="204">Retorna un array vacío del objecto Order.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.ReportController.findByDateOfRequestAndLocalsIdAndUsersIdAndOrderStatusIdExcel(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Obtiene un string base64 del reporte para exportar a Excel.
+            </summary>
+            <param name="token"></param> 
+            <param name="dateStart"></param> 
+            <param name="dateFinish"></param> 
+            <param name="localId"></param> 
+            <param name="userId"></param> 
+            <param name="orderStatusId"></param> 
+            <response code="200">Retorna un string con el archivo en base64.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.ScheduleOfAttentionController.findByLocalIdAndStatusEqualToOne(System.String,System.Int64)">
+            <summary>
+            Obtiene todos los Horarios por local de la tabla ScheduleOfAttention por el Id del local con Status = 1.
+            </summary>
+            <param name="token"></param> 
+            <param name="localId"></param> 
+            <response code="200">Retorna un array del objecto ScheduleOfAttention de la tabla ScheduleOfAttention.</response>
+            <response code="204">Retorna un array vacío del objecto ScheduleOfAttention.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.ScheduleOfAttentionController.updateStartAndFinishFindByIdAndStatusEqualToOne(bopis_api.Models.Bopis.ScheduleOfAttention,System.String)">
+            <summary>
+            Actualiza los datos de un registro de la tabla ScheduleOfAttention.
+            </summary>
+            <param name="token"></param> 
+            <param name="scheduleOfAttention">Id, Start, Finish .</param> 
+            <response code="200">Retorna un objeto ScheduleOfAttention actualizado recientemente.</response>
+            <response code="404">Retorna un objeto ScheduleOfAttention que no se pudo actualizar.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.StockController.updateQuantityByIdAndStatusEqualToOne(bopis_api.Models.Bopis.Stock,System.String)">
+            <summary>
+            Actualiza la cantidad de un registro de la tabla Stock.
+            </summary>
+            <param name="token"></param> 
+            <param name="stock">Id, Quantity</param> 
+            <response code="200">Retorna un mensaje de que se actualizo el Stock correctamente.</response>
+            <response code="404">Retorna un mensaje de que no se pudo actualizo el Stock.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.StockController.findByLocalId(System.String,System.Int64)">
+            <summary>
+            Obtiene todos los Cilindros de la tabla CylinderByLocal por el Id del local.
+            </summary>
+            <param name="token"></param> 
+            <param name="localId"></param> 
+            <response code="200">Retorna un array del objecto Stock de la tabla Stock.</response>
+            <response code="204">Retorna un array vacío del objecto Stock.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.StockController.findByCylinderByLocalIdAndStatusEqualToOne(System.String,System.Int64)">
+            <summary>
+            Obtiene el stock de los cilindros de la tabla Stock
+            </summary>
+            <param name="token"></param> 
+            <param name="cylinderByLocalId"></param> 
+            <response code="200">Retorna un objecto Stock de la tabla Stock.</response>
+            <response code="404">Retorna un mensaje de que no existe el Stock.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.UserController.login(bopis_api.Models.Bopis.User)">
+            <summary>
+            Obtiene el usuario logueado, su perfil y además del token de acceso para consumir los servicios REST.
+            </summary>
+            <param name="user">Run, Password</param> 
+            <response code="200">Retorna un objeto User del usuario logueado, un string para el token de acceso para consumir los servicios REST y un array con el perfil del usuario logueado.</response>
+            <response code="403">Retorna un mensaje de que las credenciales son incorrectas.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.UserController.updatePasswordByEmailAndStatusEqualToOne(bopis_api.Models.Bopis.User)">
+            <summary>
+            Actualiza la clave del usuario mediante el correo registrado en la tabla User.
+            </summary>
+            <param name="user">Email</param> 
+            <response code="200">Retorna un mensaje de que se envió la nueva contraseña al correo ingresado.</response>
+            <response code="404">Retorna un mensaje de que el usuario no existe o no se pudo actualizar la clave.</response>    
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.UserController.findAllCount(System.String)">
+            <summary>
+            Obtiene el total de usuarios registrados de la tabla User.
+            </summary>
+            <param name="token"></param> 
+            <response code="200">Retorna el total de usuarios de la tabla User.</response>
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.UserController.findAllPaged(System.String,System.Int32,System.String,System.Int32,System.String)">
+            <summary>
+            Obtiene todos los usuarios de la tabla User.
+            </summary>
+            <param name="token"></param> 
+            <param name="page">Predeterminado 1.</param> 
+            <param name="filter">Filtros disponibles por Nombre y RUT.</param> 
+            <param name="sort">1 = orderBy, 2 = orderByDescending, predeterminado 1.</param> 
+            <param name="column">Orden por columnas disponibles : Id, FullName, Run, Email, Profile</param> 
+            <response code="200">Retorna un array del objecto User de la tabla User.</response>
+            <response code="204">Retorna un array vacío del objecto User.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.UserController.updateStatusFindById(bopis_api.Models.Bopis.User,System.String)">
+            <summary>
+            Actualiza el Status del Usuario de la tabla User
+            </summary>
+            <param name="token"></param> 
+            <param name="user">Id, Status .</param> 
+            <response code="200">Retorna un mensaje de que se actualizo correctamente el Usuario.</response>
+            <response code="404">Retorna un mensaje de que no se pudo actualizar el Usuario.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.UserController.updatePasswordByIdAndStatusEqualToOne(bopis_api.Models.Bopis.User,System.String)">
+            <summary>
+            Actualiza la clave del Usuario de la tabla User
+            </summary>
+            <param name="token"></param> 
+            <param name="user">Id, Password .</param> 
+            <response code="200">Retorna un mensaje de que se actualizo correctamente el Usuario.</response>
+            <response code="404">Retorna un mensaje de que no se pudo actualizar el Usuario.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.UserController.updatebyIdAndStatusEqualToOne(bopis_api.Models.Bopis.User,System.String)">
+            <summary>
+            Actualiza los datos de un registro de la tabla User.
+            </summary>
+            <param name="token"></param> 
+            <param name="user">Id, ProfileId, LocalId, FullName, Run, Email</param> 
+            <response code="200">Retorna un mensaje de que se pudo actualizar el Usuario.</response>
+            <response code="404">Retorna un mensaje de que no se pudo actualizar el Usuario.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.UserController.create(bopis_api.Models.Bopis.User,System.String)">
+            <summary>
+            Crea un registro en la tabla User.
+            </summary>
+            <param name="token"></param> 
+            <param name="user">ProfileId, LocalId, FullName, Run, Email, Password</param> 
+            <response code="201">Retorna un mensaje de que se pudo crear el Usuario.</response>
+            <response code="409">Retorna un mensaje de que el Usuario ya existe.</response>   
+            <response code="404">Retorna un mensaje de que no se pudo crear el Usuario.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+        <member name="M:bopis_api.Controllers.UserController.findAllStatusEqualToOne(System.String)">
+            <summary>
+            Obtiene todos los usuario de la tabla User donde status es igual a 1.
+            </summary>
+            <param name="token"></param> 
+            <response code="200">Retorna un array del objecto User.</response>
+            <response code="204">Retorna un array vacío del objeto User.</response>   
+            <response code="403">Retorna un mensaje de que el token esta expirado.</response>   
+            <response code="500">Retorna un mensaje con error interno del servicio.</response>
+        </member>
+    </members>
+</doc>

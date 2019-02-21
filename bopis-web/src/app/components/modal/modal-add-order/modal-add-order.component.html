@@ -1,0 +1,62 @@
+<div class="modal-header lipi-blue-bg">
+  <h4 class="modal-title">Agregar Orden</h4>
+  <button type="button" class="close" aria-hidden="true" (click)="dismiss()">×</button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+          <div class="form-group row">
+                <label class="col-lg-2 col-form-label">Dirección</label>
+                <div class="col-lg-10">
+                      <input type="text" class="form-control" placeholder="Dirección..." [(ngModel)]="order.clientAddress">
+                </div>
+          </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+            <div class="form-group row">
+                  <label class="col-lg-2 col-form-label">Nombre del Cliente</label>
+                  <div class="col-lg-10">
+                        <input type="text" class="form-control" placeholder="Nombre del Cliente..." [(ngModel)]="order.clientFullName">
+                  </div>
+            </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+            <div class="form-group row">
+                  <label class="col-lg-2 col-form-label">Rut Cliente</label>
+                  <div class="col-lg-10">
+                        <input type="text" class="form-control" placeholder="Rut Cliente..." [(ngModel)]="order.clientRun">
+                  </div>
+            </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+            <div class="form-group row">
+                  <label class="col-lg-2 col-form-label">Cilindro <i class="fa fa-spinner fa-spin" *ngIf="loadingCylinderByLocalId"></i></label>
+                  <div class="col-lg-10">
+                        <select [(ngModel)]="order.cylinderByLocalId" class="form-control" (change)="findByCylinderByLocalIdAndStatusEqualToOne()">
+                          <option *ngFor="let cylinderByLocal of cylinderByLocals" value="{{ cylinderByLocal.id }}">{{ cylinderByLocal.cylinder.name }}</option>
+                        </select>
+                  </div>
+            </div>
+      </div>
+  </div>
+  <div class="row" *ngIf="cylinderByLocals.length > 0">
+      <div class="col-md-12">
+            <div class="form-group row">
+                  <label class="col-lg-2 col-form-label">Cantidad <i class="fa fa-spinner fa-spin" *ngIf="loadingFindByCylinderByLocalIdAndStatusEqualToOne"></i></label>
+                  <div class="col-lg-10">
+                        <input type="number" class="form-control" placeholder="Cantidad..." [(ngModel)]="order.quantity" [max]="order.stockQuantity">
+                  </div>
+            </div>
+      </div>
+  </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-lipi-yellow" (click)="create()" [disabled]="cylinderByLocals.length == 0 || order.quantity == 0 || loadingCreate == true">Agregar <i class="fa fa-spinner fa-spin" *ngIf="loadingCreate"></i></button>
+  <a href="javascript:;" class="btn btn-white" (click)="dismiss()">Salir</a>
+</div>

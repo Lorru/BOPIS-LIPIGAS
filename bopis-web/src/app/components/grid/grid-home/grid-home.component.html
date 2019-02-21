@@ -1,0 +1,32 @@
+<div class="row">
+      <div class="col-md-4">
+            <div class="ibox ">
+                  <div class="ibox-title navy-bg">
+                        <h5>Pedidos entregados <i class="fa fa-spinner fa-spin" *ngIf="loadingFindByOrderStatusIdAndLocalIdOrLocalId"></i></h5>
+                  </div>
+                  <div class="ibox-content">
+                        <h1 class="no-margins" style="text-align: center;">{{ delivered }}</h1>
+                  </div>
+            </div>
+      </div>
+      <div class="col-md-4">
+            <div class="ibox ">
+                  <div class="ibox-title yellow-bg">
+                        <h5>Pedidos por entregar <i class="fa fa-spinner fa-spin" *ngIf="loadingFindByOrderStatusIdAndLocalIdOrLocalId"></i></h5>
+                  </div>
+                  <div class="ibox-content">
+                        <h1 class="no-margins" style="text-align: center;">{{ slopes }}</h1>
+                  </div>
+            </div>
+      </div>
+      <div class="col-md-4">
+            <div class="ibox ">
+                  <div class="ibox-title red-bg">
+                        <h5>Pedidos anulados <i class="fa fa-spinner fa-spin" *ngIf="loadingFindByOrderStatusIdAndLocalIdOrLocalId"></i></h5>
+                  </div>
+                  <div class="ibox-content">
+                        <h1 class="no-margins" style="text-align: center;">{{ canceled }}</h1>
+                  </div>
+            </div>
+      </div>
+</div>

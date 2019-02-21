@@ -1,0 +1,66 @@
+<div class="row">
+      <div class="col-md-1">
+            <div class="input-group">
+                  <button class="btn btn-lipi-yellow" (click)="addOrder()"><i class="fa fa-plus"></i> Agregar</button>
+            </div>
+      </div>
+      <div class="col-md-4">
+            <div class="input-group">
+                  <span class="input-group-addon">
+                        <i class="fa fa-search"></i>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Buscar..." [(ngModel)]="filter" (input)="search()"/>
+            </div>
+      </div>
+</div>
+<div class="row">
+      <div class="col-md-12">
+            <div class="table-responsive">
+                  <table class="table table-striped">
+                        <thead>
+                              <tr>
+                                    <th *ngIf="loadingFindByLocalIdPaged"><i class="fa fa-spinner fa-spin"></i></th>
+                                    <th (click)="column = 'Id'; orderByAndSort();"># Pedido <i class="{{ sorts.Id }}"></i></th>
+                                    <th (click)="column = 'ClientAddress'; orderByAndSort();"># Cliente <i class="{{ sorts.ClientAddress }}"></i></th>
+                                    <th (click)="column = 'ClientRun'; orderByAndSort();"> Rut <i class="{{ sorts.ClientRun }}"></i></th>
+                                    <th (click)="column = 'ClientFullName'; orderByAndSort();"> Nombre completo <i class="{{ sorts.ClientFullName }}"></i></th>
+                                    <th (click)="column = 'DateOfDelivery'; orderByAndSort();"> Fecha entrega <i class="{{ sorts.DateOfDelivery }}"></i></th>
+                                    <th (click)="column = 'ScheduleOfRetirement'; orderByAndSort();"> Horario Retiro <i class="{{ sorts.ScheduleOfRetirement }}"></i></th>
+                                    <th (click)="column = 'DateOfRequest'; orderByAndSort();"> Fecha solicitud <i class="{{ sorts.DateOfRequest }}"></i></th>
+                                    <th colspan="3">Opciones</th>
+                              </tr>
+                        </thead>
+                        <tbody *ngIf="orders.length > 0">
+                              <tr *ngFor="let order of orders">
+                                    <td>{{ order.id }}</td>
+                                    <td>{{ order.clientAddress }}</td>
+                                    <td>{{ order.clientRun }}</td>
+                                    <td>{{ order.clientFullName }}</td>
+                                    <td>{{ order.dateOfDelivery | date: 'yyyy-MM-dd' }}</td>
+                                    <td>{{ order.scheduleOfRetirement }}</td>
+                                    <td>{{ order.dateOfRequest | date: 'yyyy-MM-dd' }}</td>
+                                    <td>
+                                          <button class="btn btn-lipi-yellow" (click)="detailOrder(order.id)"><i class="fa fa-info"></i> Ver detalle</button>
+                                    </td>
+                                    <td>
+                                          <button class="btn btn-success" *ngIf="order.orderStatusId == 2" (click)="attendOrder(order.id)"><i class="fa fa-check"></i> Atender</button>
+                                          <span *ngIf="order.orderStatusId != 2"></span>
+                                    </td>
+                                    <td>
+                                          <button class="btn btn-danger" *ngIf="validateCancelOrder(order.dateOfRequest) && order.orderStatusId == 2" (click)="cancelOrder(order.id)"><i class="fa fa-times"></i> Anular</button>
+                                          <span *ngIf="!validateCancelOrder(order.dateOfRequest) && order.orderStatusId != 2"></span>
+                                    </td>
+                              </tr>
+                        </tbody>
+                        <tbody *ngIf="orders.length == 0">
+                              <tr>
+                                    <td colspan="8" style="text-align: center;"><i class="fa fa-search"></i> Sin resultados.</td>
+                              </tr>
+                        </tbody>
+                  </table>
+            </div>
+            <ng-container *ngIf="orders.length > 0">
+                  <ngb-pagination [collectionSize]="countRows" [pageSize]="countRowsByPage" [(page)]="currentPage" (pageChange)="pageChange($event)"></ngb-pagination>
+            </ng-container>
+      </div>
+</div>

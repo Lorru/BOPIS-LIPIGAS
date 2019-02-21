@@ -1,0 +1,50 @@
+<div class="modal-header lipi-blue-bg">
+  <h4 class="modal-title">Editar Local</h4>
+  <button type="button" class="close" aria-hidden="true" (click)="dismiss()">×</button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+          <div class="form-group row">
+                <label class="col-lg-2 col-form-label">Nombre</label>
+                <div class="col-lg-10">
+                      <input type="text" class="form-control" placeholder="Nombre..." [(ngModel)]="local[0].name">
+                </div>
+          </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+            <div class="form-group row">
+                  <label class="col-lg-2 col-form-label">Latitud</label>
+                  <div class="col-lg-10">
+                        <input type="number" class="form-control" placeholder="Latitud..." [(ngModel)]="local[0].latitude">
+                  </div>
+            </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+            <div class="form-group row">
+                  <label class="col-lg-2 col-form-label">Longitud</label>
+                  <div class="col-lg-10">
+                        <input type="number" class="form-control" placeholder="Longitud..." [(ngModel)]="local[0].length">
+                  </div>
+            </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+          <div class="form-group row">
+                <label class="col-lg-2 col-form-label">Radio</label>
+                <div class="col-lg-10">
+                      <input type="number" class="form-control" placeholder="Radio..." [(ngModel)]="local[0].radio">
+                </div>
+          </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-lipi-yellow" (click)="updateFindById()" [disabled]="loadingUpdateFindById">Editar <i class="fa fa-spinner fa-spin" *ngIf="loadingUpdateFindById"></i></button>
+  <a href="javascript:;" class="btn btn-white" (click)="dismiss()">Salir</a>
+</div>

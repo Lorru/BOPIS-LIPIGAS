@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bopis-api", "bopis-api\bopis-api.csproj", "{D105DF6A-CA6C-49DB-89BE-6B7C7DC90D4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D105DF6A-CA6C-49DB-89BE-6B7C7DC90D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D105DF6A-CA6C-49DB-89BE-6B7C7DC90D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D105DF6A-CA6C-49DB-89BE-6B7C7DC90D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D105DF6A-CA6C-49DB-89BE-6B7C7DC90D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A8AF6A3-996A-42E7-8730-52DE22876378}
+	EndGlobalSection
+EndGlobal
